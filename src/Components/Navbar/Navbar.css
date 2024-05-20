@@ -1,0 +1,43 @@
+.navbar {
+  width: 100%;
+  justify-content: space-evenly;
+  display: flex;
+  /* justify-content: center; */
+  /* gap: 20px; */
+  box-shadow: 1px 1px #bac5c9;
+}
+.image-logo {
+  display: flex;
+  align-items: center;
+}
+
+.image-logo p {
+  font-size: 25px;
+  font-weight: 400;
+}
+
+.nav-menu {
+  /* display: flex; */
+  display: flex;
+  /* justify-content: center; */
+  align-items: center;
+  gap: 20px;
+}
+
+.login-btn {
+  display: flex;
+  align-items: center;
+}
+
+.cart-logo {
+  display: flex;
+  align-items: center;
+}
+
+.cart-logo img {
+  height: 30px;
+  width: 30px;
+}
+
+.btn-login {
+}
