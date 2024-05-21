@@ -1,0 +1,14 @@
+.men-zone {
+  margin: 0% 10% 0% 10%;
+}
+
+.dicount-banner {
+  width: 100%;
+  margin-top: 20px;
+}
+
+.total-item {
+  display: flex;
+  justify-content: space-between;
+  padding-top: 20px;
+}

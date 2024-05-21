@@ -21,6 +21,8 @@
   margin-top: 10px;
   border-radius: 22px;
   width: 177px;
+  justify-content: center;
+  align-items: center;
 }
 
 .wave {
