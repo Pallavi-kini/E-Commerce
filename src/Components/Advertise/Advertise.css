@@ -1,0 +1,58 @@
+.ad-container {
+  background-image: linear-gradient(#ebccea, #fcf7fc);
+}
+
+.hero-text-image {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.hero-image {
+  height: 350px;
+}
+
+.latest-collection {
+  color: white;
+  display: flex;
+  background-color: orangered;
+  gap: 10px;
+  padding: 9px;
+  margin-top: 10px;
+  border-radius: 22px;
+  width: 177px;
+}
+
+.wave {
+  animation-name: wave-animation;
+  animation-duration: 2.2s;
+  animation-iteration-count: infinite;
+  transform-origin: 70% 70%;
+}
+
+@keyframes wave-animation {
+  0% {
+    transform: rotate(0deg);
+  }
+  10% {
+    transform: rotate(14deg);
+  } /* The following five values can be played with to make the waving more or less extreme */
+  20% {
+    transform: rotate(-8deg);
+  }
+  30% {
+    transform: rotate(14deg);
+  }
+  40% {
+    transform: rotate(-4deg);
+  }
+  50% {
+    transform: rotate(10deg);
+  }
+  60% {
+    transform: rotate(0deg);
+  } /* Reset for the last half to pause */
+  100% {
+    transform: rotate(0deg);
+  }
+}

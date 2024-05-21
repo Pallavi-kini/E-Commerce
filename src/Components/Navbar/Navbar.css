@@ -9,11 +9,12 @@
 .image-logo {
   display: flex;
   align-items: center;
+  cursor: pointer;
 }
 
 .image-logo p {
   font-size: 25px;
-  font-weight: 400;
+  font-weight: 700;
 }
 
 .nav-menu {
@@ -40,4 +41,24 @@
 }
 
 .btn-login {
+  padding: 10px 25px 10px 25px;
+  outline: none;
+  border-radius: 23px;
+  border: 1px solid black;
+  font-size: 14px;
+}
+
+.cart-login {
+  display: flex;
+  gap: 29px;
+}
+
+a {
+  color: black;
+  text-decoration: none;
+}
+
+a.active {
+  color: black;
+  text-decoration-line: underline;
 }
