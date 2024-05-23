@@ -1,0 +1,25 @@
+.login-component {
+  background-color: white;
+  padding: 44px 26px 70px 26px;
+}
+
+.login-input {
+  padding: 10px;
+  margin: 14px 0px 16px 0px;
+  width: 100%;
+}
+
+.continue-btn {
+  background-color: orangered;
+  color: white;
+  padding: 10px;
+  width: 100%;
+  border: none;
+  outline: none;
+}
+
+.create-acnt {
+  display: flex;
+  margin-top: 15px;
+  gap: 5px;
+}

@@ -1,0 +1,8 @@
+.login-page {
+  background-image: linear-gradient(#ebccea, #fcf7fc);
+  margin: 0% 10% 0% 10%;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

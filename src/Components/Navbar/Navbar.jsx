@@ -6,8 +6,13 @@ import { NavLink, useNavigate } from "react-router-dom";
 
 const Navbar = () => {
   const navigate = useNavigate();
+
   const handleClickLogo = () => {
     navigate("/");
+  };
+
+  const HandleLoginClick = () => {
+    navigate("login");
   };
 
   return (
@@ -32,7 +37,9 @@ const Navbar = () => {
       </div>
       <div className="cart-login">
         <div className="login-btn">
-          <button className="btn-login">Login</button>
+          <button className="btn-login" onClick={HandleLoginClick}>
+            Login
+          </button>
         </div>
         <div className="cart-logo">
           <img src={cart} alt="" />
