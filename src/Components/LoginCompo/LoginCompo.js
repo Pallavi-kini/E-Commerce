@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import "./LoginCompo.css";
 import { useNavigate } from "react-router-dom";
 import MyContext from "../../Pages/MyContext";
@@ -6,6 +6,7 @@ import MyContext from "../../Pages/MyContext";
 const LoginCompo = (props) => {
   const { setshowSignup } = useContext(MyContext);
   const { login, setLogin } = useContext(MyContext);
+  const [showPswrd, setShowPswrd] = useState(true);
 
   const navigateToSignup = () => {
     setshowSignup(true);
@@ -29,6 +30,10 @@ const LoginCompo = (props) => {
     e.preventDefault();
     props.handleFormSubmit();
   };
+
+  const toggleEyeIcon = () => {
+    setShowPswrd(!showPswrd);
+  };
   return (
     <div className="login-component">
       <h3>Login</h3>
@@ -41,14 +46,23 @@ const LoginCompo = (props) => {
           placeholder="Enter Email"
           onChange={handleInputChangeEmail}
         />
-        <input
-          type="password"
-          name="password"
-          value={login.password || ""}
-          className="login-input"
-          placeholder="Password"
-          onChange={handleInputChangePswrd}
-        />
+        <div style={{ display: "contents", position: "relative" }}>
+          <input
+            type={showPswrd ? "password" : "text"}
+            name="password"
+            value={login.password || ""}
+            className="login-input"
+            placeholder="Password"
+            onChange={handleInputChangePswrd}
+          />
+          <span className="eye-logo" onClick={toggleEyeIcon}>
+            {showPswrd ? (
+              <i className="fa-regular fa-eye"></i>
+            ) : (
+              <i className="fa-regular fa-eye-slash"></i>
+            )}
+          </span>
+        </div>
         <button type="submit" className="continue-btn">
           Continue
         </button>

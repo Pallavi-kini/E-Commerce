@@ -23,3 +23,10 @@
   margin-top: 15px;
   gap: 5px;
 }
+
+.eye-logo {
+  position: absolute;
+  top: 403px;
+  right: 298px;
+  cursor: pointer;
+}

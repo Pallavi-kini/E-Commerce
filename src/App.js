@@ -1,11 +1,13 @@
 import { Route, Routes } from "react-router-dom";
-import "./App.css";
 import Navbar from "./Components/Navbar/Navbar";
 import Women from "./Pages/Women";
 import Shop from "./Pages/Shop";
 import MenFile from "./Pages/MenFile";
 import Kids from "./Pages/Kids";
 import Login from "./Pages/Login";
+import ProductDetails from "./Pages/ProductDetails";
+import Footer from "./Components/Footer/Footer";
+import "./App.css";
 
 function App() {
   return (
@@ -17,7 +19,9 @@ function App() {
         <Route path="men" element={<MenFile />} />
         <Route path="kids" element={<Kids />} />
         <Route path="login" element={<Login />} />
+        <Route path="product" element={<ProductDetails />} />
       </Routes>
+      <Footer />
     </div>
   );
 }

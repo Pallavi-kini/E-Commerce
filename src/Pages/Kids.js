@@ -19,9 +19,6 @@ const Kids = () => {
           <ReusableCard key={item.id} item={item} />
         ))}
       </div>
-      <div>
-        <Footer />
-      </div>
     </div>
   );
 };

@@ -20,9 +20,6 @@ const MenFile = () => {
           <ReusableCard key={item.id} item={item} />
         ))}
       </div>
-      <div>
-        <Footer />
-      </div>
     </div>
   );
 };

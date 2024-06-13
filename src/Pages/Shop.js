@@ -17,7 +17,6 @@ const Shop = () => {
       <Advertise topcontent={false} />
       <NewCollections />
       <NewsLetter />
-      <Footer />
     </div>
   );
 };
