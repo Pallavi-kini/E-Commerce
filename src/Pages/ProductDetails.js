@@ -23,10 +23,10 @@ const ProductDetails = () => {
     setSelectedSize(index);
   };
 
-  const changeButton = (e) => {
-    setButton(e.target.value);
-    // console.log(button);
-  };
+  // const changeButton = (e) => {
+  //   setButton(e.target.value);
+  //   // console.log(button);
+  // };
 
   useEffect(() => {
     // checkobj();

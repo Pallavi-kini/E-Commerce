@@ -1,9 +1,8 @@
-import React, { createContext } from "react";
+import React from "react";
 import banner_men from "../Components/Assets/banner_mens.png";
 import all_product from "../Components/Assets/all_product";
 import "./MenFile.css";
 import ReusableCard from "../Components/ReusableCard/ReusableCard";
-import Footer from "../Components/Footer/Footer";
 
 const MenFile = () => {
   const menData = all_product.filter((item) => item.category === "men");
