@@ -24,9 +24,9 @@
   gap: 5px;
 }
 
-.eye-logo {
+i {
   position: absolute;
-  top: 403px;
-  right: 298px;
-  cursor: pointer;
+  top: 6px;
+  right: 0;
+  padding-right: 20px;
 }

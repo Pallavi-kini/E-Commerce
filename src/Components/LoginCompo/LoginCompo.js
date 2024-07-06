@@ -45,23 +45,22 @@ const LoginCompo = (props) => {
           placeholder="Enter Email"
           onChange={handleInputChangeEmail}
         />
-        <div style={{ display: "contents", position: "relative" }}>
-          <input
-            type={showPswrd ? "password" : "text"}
-            name="password"
-            value={login.password || ""}
-            className="login-input"
-            placeholder="Password"
-            onChange={handleInputChangePswrd}
-          />
-          <span className="eye-logo" onClick={toggleEyeIcon}>
-            {showPswrd ? (
-              <i className="fa-regular fa-eye"></i>
-            ) : (
-              <i className="fa-regular fa-eye-slash"></i>
-            )}
-          </span>
-        </div>
+
+        <input
+          type={showPswrd ? "password" : "text"}
+          name="password"
+          value={login.password || ""}
+          className="login-input"
+          placeholder="Password"
+          onChange={handleInputChangePswrd}
+        />
+        <span onClick={toggleEyeIcon} style={{ position: "relative" }}>
+          {showPswrd ? (
+            <i className="fa-regular fa-eye"></i>
+          ) : (
+            <i className="fa-regular fa-eye-slash"></i>
+          )}
+        </span>
         <button type="submit" className="continue-btn">
           Continue
         </button>

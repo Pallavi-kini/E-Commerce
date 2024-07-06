@@ -70,7 +70,7 @@ const SignUp = (props) => {
             placeholder="Password"
             onChange={handleInputChangePswrd}
           />
-          <span className="eye-logo-signup" onClick={toggleEyeIcon}>
+          <span onClick={toggleEyeIcon} style={{ position: "relative" }}>
             {showPswrd ? (
               <i className="fa-regular fa-eye"></i>
             ) : (
