@@ -1,13 +1,11 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import "./ProductDetails.css";
 import product_1 from "../Components/Assets/product_1.png";
 import star_icom from "../Components/Assets/star_icon.png";
 import star_dullicon from "../Components/Assets/star_dull_icon.png";
-import { cleanup } from "@testing-library/react";
 
 const ProductDetails = () => {
   const [selectedSize, setSelectedSize] = useState("");
-  const [button, setButton] = useState("Product");
 
   const star = [1, 2, 3, 4];
   const objct = {
@@ -22,18 +20,6 @@ const ProductDetails = () => {
   const selectSize = (index) => {
     setSelectedSize(index);
   };
-
-  // const changeButton = (e) => {
-  //   setButton(e.target.value);
-  //   // console.log(button);
-  // };
-
-  useEffect(() => {
-    // checkobj();
-    return () => {
-      cleanup();
-    };
-  }, [button]);
 
   return (
     <div className="ProductDetailsPage">
