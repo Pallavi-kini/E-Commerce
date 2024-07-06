@@ -2,7 +2,6 @@ import React from "react";
 import banner_women from "../Components/Assets/banner_women.png";
 import all_product from "../Components/Assets/all_product";
 import ReusableCard from "../Components/ReusableCard/ReusableCard";
-import Footer from "../Components/Footer/Footer";
 
 const Women = () => {
   const womenData = all_product.filter((item) => item.category === "women");

@@ -2,7 +2,6 @@ import React from "react";
 import banner_kids from "../Components/Assets/banner_kids.png";
 import all_product from "../Components/Assets/all_product";
 import ReusableCard from "../Components/ReusableCard/ReusableCard";
-import Footer from "../Components/Footer/Footer";
 
 const Kids = () => {
   const kidData = all_product.filter((item) => item.category === "kid");

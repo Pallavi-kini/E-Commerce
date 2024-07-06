@@ -4,7 +4,6 @@ import "./Shop.css";
 import PopularItem from "../Components/PopularItem/PopularItem";
 import NewCollections from "../Components/NewCollection/NewCollections";
 import NewsLetter from "../Components/NewsLetter/NewsLetter";
-import Footer from "../Components/Footer/Footer";
 import "./Shop.css";
 
 const Shop = () => {

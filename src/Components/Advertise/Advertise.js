@@ -13,7 +13,12 @@ const Advertise = (props) => {
             <h3>NEW ARRIVALS ONLY</h3>
             <h1 style={{ marginTop: "20px" }}>
               new{" "}
-              <img src={handicon} style={{ height: "57px" }} className="wave" />
+              <img
+                src={handicon}
+                style={{ height: "57px" }}
+                className="wave"
+                alt="hadicon"
+              />
               collections for everyone
             </h1>
             <div className="latest-collection">

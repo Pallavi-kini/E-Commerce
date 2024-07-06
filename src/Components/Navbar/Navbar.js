@@ -42,7 +42,7 @@ const Navbar = () => {
           </button>
         </div>
         <div className="cart-logo">
-          <img src={cart} alt="" />
+          <img src={cart} alt="logo" />
         </div>
       </div>
     </div>

@@ -1,6 +1,5 @@
 import React, { useContext, useState } from "react";
 import "./LoginCompo.css";
-import { useNavigate } from "react-router-dom";
 import MyContext from "../../Pages/MyContext";
 
 const LoginCompo = (props) => {

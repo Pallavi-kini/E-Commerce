@@ -46,9 +46,9 @@ const ProductDetails = () => {
           <p></p>
           <p style={{ marginTop: "10px" }}>
             {star.map((item) => (
-              <img src={star_icom} alt="" key={item} />
+              <img src={star_icom} alt="star-icn" key={item} />
             ))}
-            <img src={star_dullicon} alt="" />
+            <img src={star_dullicon} alt="star-dull" />
             <span>(221)</span>
           </p>
           <div
