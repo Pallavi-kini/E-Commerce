@@ -5,7 +5,6 @@ import ReusableCard from "../Components/ReusableCard/ReusableCard";
 
 const Kids = () => {
   const kidData = all_product.filter((item) => item.category === "kid");
-  console.log(kidData);
   return (
     <div className="men-zone">
       <img src={banner_kids} alt="banner_men" className="dicount-banner" />

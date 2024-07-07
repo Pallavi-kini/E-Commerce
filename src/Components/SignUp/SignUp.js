@@ -72,9 +72,9 @@ const SignUp = (props) => {
           />
           <span onClick={toggleEyeIcon} style={{ position: "relative" }}>
             {showPswrd ? (
-              <i className="fa-regular fa-eye"></i>
+              <i className="fa-regular fa-eye" id="eye"></i>
             ) : (
-              <i className="fa-regular fa-eye-slash"></i>
+              <i className="fa-regular fa-eye-slash" id="eye"></i>
             )}
           </span>
         </div>

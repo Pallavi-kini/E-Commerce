@@ -1,7 +1,8 @@
 .popular-item-container {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr;
   overflow-y: auto;
+  gap: 20px;
 }
 
 .heading {

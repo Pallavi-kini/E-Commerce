@@ -1,10 +1,12 @@
 import React from "react";
-import data_product from "../Assets/data";
 import ReusableCard from "../ReusableCard/ReusableCard";
 import "./PopularItem.css";
 
-const PopularItem = () => {
-  console.log(data_product);
+const PopularItem = (props) => {
+  const women = props.productlist.filter(
+    (data) => data.category === `women's clothing`
+  );
+
   return (
     <div>
       <div className="heading">
@@ -12,7 +14,7 @@ const PopularItem = () => {
         <hr className="straight-line"></hr>
       </div>
       <div className="popular-item-container">
-        {data_product.map((item) => (
+        {women.map((item) => (
           <ReusableCard key={item.id} item={item} />
         ))}
       </div>
