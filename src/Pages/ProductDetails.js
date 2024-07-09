@@ -1,19 +1,18 @@
 import React, { useEffect, useState } from "react";
 import "./ProductDetails.css";
+import { useDispatch } from "react-redux";
 import axios from "axios";
+import { modify } from "../store/CartSlice";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const ProductDetails = () => {
-  const [selectedSize, setSelectedSize] = useState("");
+  const [selectedSize, setSelectedSize] = useState();
   const [product, setProduct] = useState([]);
+  const [showToast, setShowToast] = useState(0);
 
-  // const star = [1, 2, 3, 4];
-  const objct = {
-    id: 4,
-    name: "Striped Flutter Sleeve Overlap Collar Peplum Hem Blouse",
-    category: "women",
-    new_price: 100.0,
-    old_price: 150.0,
-  };
+  const dispatch = useDispatch();
+
   const sizes = ["S", "M", "L", "XL", "XXL"];
   const url = process.env.REACT_APP_API_URL;
 
@@ -26,44 +25,66 @@ const ProductDetails = () => {
     if (id) {
       const resp = axios.get(`${url}/products/${id}`);
       resp.then((res) => setProduct(res.data)).catch((err) => console.log(err));
-      console.log(product);
     }
+    localStorage.removeItem("productId");
   }, []);
-  console.log(product);
 
   const num = product.rating?.rate || 0;
   const [number, decimal] = num.toString().split(".");
-  console.log(number, typeof number, decimal, typeof decimal);
   const no = parseInt(number);
   const dec = parseInt(decimal);
   const star = Array.from({ length: 5 }, (_, i) =>
     i < no ? 1 : i === no && dec >= 5 ? 2 : 3
   );
 
-  console.log(star);
+  const mapStar = (item, index) => (
+    <i
+      key={index}
+      className={`fa-solid ${
+        item === 1 ? "fa-star" : item === 2 ? "fa-star-half-stroke" : "fa-star"
+      }`}
+      style={{ color: item === 3 ? "#f29797" : "#f04747" }}
+    ></i>
+  );
 
-  function mapStar(item) {
-    console.log(item);
-    switch (item) {
-      case 1:
-        return (
-          <i className="fa-solid fa-star" style={{ color: "#f04747" }}></i>
-        );
-      case 2:
-        return (
-          <i
-            className="fa-solid fa-star-half-stroke"
-            style={{ color: "#f04747" }}
-          ></i>
-        );
-      case 3:
-        return (
-          <i className="fa-solid fa-star" style={{ color: "#f29797" }}></i>
-        );
-      default:
-        return item;
-    }
-  }
+  const addtoCart = (item) => {
+    selectedSize === undefined ? setShowToast(1) : setShowToast(2);
+    const size = sizes.at(selectedSize);
+    const obj = {
+      ...item,
+      size: size,
+      type: "add",
+    };
+    dispatch(modify(obj));
+    notify();
+  };
+
+  const notify = () => {
+    let toastText =
+      showToast === 1
+        ? "Please Select a size"
+        : showToast === 2
+        ? "Added to cart Successfully"
+        : "";
+    let type = showToast === 1 ? "warn" : showToast === 2 ? "success" : "";
+
+    // const toastType = {
+    //   warn: toast.warn,
+    //   success: toast.success,
+    // };
+
+    // toastType[type](toastText, {
+    //   position: "bottom-center",
+    //   autoClose: 1500,
+    //   hideProgressBar: false,
+    //   closeOnClick: true,
+    //   pauseOnHover: true,
+    //   draggable: true,
+    //   progress: undefined,
+    //   theme: "colored",
+    //   className: "toast",
+    // });
+  };
 
   return (
     <div className="ProductDetailsPage">
@@ -75,7 +96,7 @@ const ProductDetails = () => {
           <h2>{product.title}</h2>
           <p></p>
           <p style={{ marginTop: "10px" }}>
-            {star.map((item) => mapStar(item))}
+            {star.map((item, index) => mapStar(item, index))}
             {product.rating?.rate}
             <span style={{ paddingLeft: "10px" }}>
               ({product.rating?.count})
@@ -85,14 +106,8 @@ const ProductDetails = () => {
             className="old-new-price
           "
           >
-            <span>
-              <del>
-                {objct.old_price}
-                <span>&#36;</span>
-              </del>
-            </span>
-            <span style={{ color: "red" }}>
-              {objct.new_price}
+            <span style={{ fontWeight: 500 }}>
+              Price : {product.price}
               <span>&#36;</span>
             </span>
           </div>
@@ -111,9 +126,20 @@ const ProductDetails = () => {
           </div>
           {/*ffhhfh  */}
           <div>
-            <button type="" className="cart-button">
+            <button
+              type=""
+              className={
+                selectedSize !== undefined ? "cart-button" : "active-btn"
+              }
+              onClick={() => addtoCart(product)}
+            >
               ADD TO CART
             </button>
+            {showToast !== 0 ? (
+              <ToastContainer style={{ position: "relative" }} />
+            ) : (
+              ""
+            )}
           </div>
         </div>
       </div>

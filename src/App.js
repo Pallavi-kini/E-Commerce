@@ -6,6 +6,7 @@ import MenFile from "./Pages/MenFile";
 import Kids from "./Pages/Kids";
 import Login from "./Pages/Login";
 import ProductDetails from "./Pages/ProductDetails";
+import Cart from "./Pages/Cart";
 import Footer from "./Components/Footer/Footer";
 import "./App.css";
 
@@ -19,6 +20,8 @@ function App() {
         <Route path="men" element={<MenFile />} />
         <Route path="kids" element={<Kids />} />
         <Route path="login" element={<Login />} />
+        <Route path="cart" element={<Cart />} />
+        <Route path="cart/product" element={<ProductDetails />} />
         <Route path="product" element={<ProductDetails />} />
       </Routes>
       <Footer />

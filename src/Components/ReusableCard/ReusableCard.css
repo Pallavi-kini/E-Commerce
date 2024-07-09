@@ -8,7 +8,7 @@
 }
 
 .product-details {
-  text-align: center;
+  text-align: left;
   font-size: 15px;
   font-weight: 500;
 }
@@ -16,6 +16,16 @@
 .image-div {
   display: flex;
   justify-content: center;
+}
+
+.remove-from-cart {
+  background-color: rgb(247 197 6);
+  border: none;
+  outline: none;
+  padding: 10px;
+  border-radius: 10px;
+  font-weight: 600;
+  cursor: pointer;
 }
 
 @media only screen and (max-width: 750px) {

@@ -17,13 +17,9 @@ const Login = () => {
     password: "",
   });
 
-  const handleFormSubmit = () => {
-    console.log(login);
-  };
+  const handleFormSubmit = () => {};
 
-  const handleSubmitSignupForm = () => {
-    console.log(signupUser);
-  };
+  const handleSubmitSignupForm = () => {};
   return (
     <div className="login-page">
       <MyContext.Provider

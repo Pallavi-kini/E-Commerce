@@ -34,6 +34,7 @@
   display: flex;
   align-items: center;
   cursor: pointer;
+  position: relative;
 }
 
 .cart-logo img {
@@ -63,4 +64,16 @@ a {
 a.active {
   color: black;
   text-decoration-line: underline;
+}
+
+.cart-count {
+  height: 20px;
+  width: 22px;
+  background-color: #ff224f;
+  border-radius: 50%;
+  position: absolute;
+  top: 7px;
+  right: -12px;
+  color: white;
+  text-align: center;
 }

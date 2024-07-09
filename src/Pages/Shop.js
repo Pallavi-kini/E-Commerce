@@ -21,7 +21,6 @@ const Shop = () => {
       .then((res) => setProductlist(res.data))
       .catch((err) => console.log(err));
   }
-  console.log("shop");
 
   return (
     <div className="shop-container">

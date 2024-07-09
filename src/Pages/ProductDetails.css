@@ -63,6 +63,25 @@
   cursor: pointer;
 }
 
+.active-btn {
+  padding: 12px;
+  color: white;
+  background-color: #aba5a3;
+  border: none;
+  outline: none;
+  font-weight: 600;
+  border-radius: 5px;
+  margin-top: 32px;
+  cursor: pointer;
+}
+
 .prodt-img {
   height: 250px;
+}
+
+.toast {
+  background-color: #bdb24c;
+  position: absolute;
+  top: 20px;
+  left: -80px;
 }

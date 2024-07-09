@@ -5,7 +5,6 @@ const NewsLetter = () => {
   const [input, setinput] = useState("");
 
   const handleChange = (e) => {
-    console.log(e.target.value);
     setinput(e.target.value);
   };
   return (

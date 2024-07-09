@@ -3,6 +3,7 @@ import "./Navbar.css";
 import logo from "../Assets/logo.png";
 import cart from "../Assets/cart_icon.png";
 import { NavLink, useNavigate } from "react-router-dom";
+import { useSelector } from "react-redux";
 
 const Navbar = () => {
   const navigate = useNavigate();
@@ -14,6 +15,13 @@ const Navbar = () => {
   const HandleLoginClick = () => {
     navigate("login");
   };
+
+  const navigateToCart = () => {
+    navigate("cart");
+  };
+
+  const countFromRedux = useSelector((state) => state.cart);
+  const count = countFromRedux.noOfItem;
 
   return (
     <div className="navbar">
@@ -41,8 +49,9 @@ const Navbar = () => {
             Login
           </button>
         </div>
-        <div className="cart-logo">
+        <div className="cart-logo" onClick={navigateToCart}>
           <img src={cart} alt="logo" />
+          {count > 0 ? <div className="cart-count">{count}</div> : ""}
         </div>
       </div>
     </div>

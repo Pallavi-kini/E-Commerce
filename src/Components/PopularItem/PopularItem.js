@@ -15,7 +15,7 @@ const PopularItem = (props) => {
       </div>
       <div className="popular-item-container">
         {women.map((item) => (
-          <ReusableCard key={item.id} item={item} />
+          <ReusableCard key={item.id} item={item} cart={false} />
         ))}
       </div>
     </div>
