@@ -1,6 +1,6 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import "./ProductDetails.css";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import axios from "axios";
 import { modify } from "../store/CartSlice";
 import { ToastContainer, toast } from "react-toastify";
@@ -9,26 +9,43 @@ import "react-toastify/dist/ReactToastify.css";
 const ProductDetails = () => {
   const [selectedSize, setSelectedSize] = useState();
   const [product, setProduct] = useState([]);
-  const [showToast, setShowToast] = useState(0);
-
+  const [showToast, setShowToast] = useState(false);
+  const [isInCart, setIsInCart] = useState(false);
+  const prodId = useRef("");
   const dispatch = useDispatch();
 
-  const sizes = ["S", "M", "L", "XL", "XXL"];
   const url = process.env.REACT_APP_API_URL;
 
   const selectSize = (index) => {
     setSelectedSize(index);
   };
 
+  const cartData = useSelector((state) => state.cart.cart);
+
   useEffect(() => {
-    const id = localStorage.getItem("productId");
-    if (id) {
-      const resp = axios.get(`${url}/products/${id}`);
+    prodId.current = localStorage.getItem("productId");
+    getdataFromRedux();
+    if (prodId.current) {
+      const resp = axios.get(`${url}/products/${prodId.current}`);
       resp.then((res) => setProduct(res.data)).catch((err) => console.log(err));
     }
     localStorage.removeItem("productId");
   }, []);
 
+  function getdataFromRedux() {
+    if (cartData.length > 0) {
+      const filteredData = cartData.filter(
+        (cartItem) => cartItem.id === Number(prodId.current)
+      );
+      filteredData.length > 0 ? setIsInCart(true) : setIsInCart(false);
+      const selectedSizeIndex = sizes.findIndex(
+        (data) => data === filteredData[0]?.size
+      );
+      setSelectedSize(selectedSizeIndex);
+    }
+  }
+
+  const sizes = ["S", "M", "L", "XL", "XXL"];
   const num = product.rating?.rate || 0;
   const [number, decimal] = num.toString().split(".");
   const no = parseInt(number);
@@ -48,42 +65,33 @@ const ProductDetails = () => {
   );
 
   const addtoCart = (item) => {
-    selectedSize === undefined ? setShowToast(1) : setShowToast(2);
+    selectedSize === undefined ? setShowToast(false) : setShowToast(true);
     const size = sizes.at(selectedSize);
     const obj = {
       ...item,
       size: size,
-      type: "add",
+      type: isInCart ? "remove" : "add",
     };
     dispatch(modify(obj));
     notify();
+    obj.type === "add" ? setIsInCart(true) : setIsInCart(false);
   };
 
   const notify = () => {
-    let toastText =
-      showToast === 1
-        ? "Please Select a size"
-        : showToast === 2
-        ? "Added to cart Successfully"
-        : "";
-    let type = showToast === 1 ? "warn" : showToast === 2 ? "success" : "";
-
-    // const toastType = {
-    //   warn: toast.warn,
-    //   success: toast.success,
-    // };
-
-    // toastType[type](toastText, {
-    //   position: "bottom-center",
-    //   autoClose: 1500,
-    //   hideProgressBar: false,
-    //   closeOnClick: true,
-    //   pauseOnHover: true,
-    //   draggable: true,
-    //   progress: undefined,
-    //   theme: "colored",
-    //   className: "toast",
-    // });
+    toast.success(
+      isInCart ? "Removed From Cart" : "Added to cart Successfully",
+      {
+        position: "bottom-center",
+        autoClose: 1500,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "colored",
+        className: "toast",
+      }
+    );
   };
 
   return (
@@ -125,15 +133,16 @@ const ProductDetails = () => {
             ))}
           </div>
           {/*ffhhfh  */}
-          <div>
+          <div style={{ display: "flex", height: "70px" }}>
             <button
               type=""
               className={
                 selectedSize !== undefined ? "cart-button" : "active-btn"
               }
               onClick={() => addtoCart(product)}
+              disabled={selectedSize !== undefined ? false : true}
             >
-              ADD TO CART
+              {isInCart ? "REMOVE FROM CART" : "ADD TO CART"}
             </button>
             {showToast !== 0 ? (
               <ToastContainer style={{ position: "relative" }} />

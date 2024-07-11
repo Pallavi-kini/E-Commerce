@@ -8,7 +8,7 @@ const Cart = () => {
   const cartData = useSelector((state) => state.cart);
   const cartItem = cartData.cart;
   return (
-    <div>
+    <div className="the-cart">
       <div className="heading">
         <h1>Cart Items</h1>
         <hr className="straight-line"></hr>

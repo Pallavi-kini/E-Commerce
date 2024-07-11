@@ -29,7 +29,7 @@ const Shop = () => {
         <PopularItem productlist={productlist} />
       </div>
       <Advertise topcontent={false} />
-      <NewCollections />
+      <NewCollections productlist={productlist} />
       <NewsLetter />
     </div>
   );

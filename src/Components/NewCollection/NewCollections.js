@@ -2,7 +2,8 @@ import React from "react";
 import new_collections from "../Assets/new_collections";
 import ReusableCard from "../ReusableCard/ReusableCard";
 
-const NewCollections = () => {
+const NewCollections = (props) => {
+  // console.log(props);
   return (
     <div>
       <div className="heading">
