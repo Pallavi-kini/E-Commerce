@@ -7,6 +7,8 @@ const PopularItem = (props) => {
     (data) => data.category === `women's clothing`
   );
 
+  // women.splice(0, 12);
+
   return (
     <div>
       <div className="heading">
